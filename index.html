@@ -776,7 +776,7 @@
             </p>
             <p class="footer-tagline">Got feedback? Let's connect</p>
             <div class="social-links">
-                <a href="/cdn-cgi/l/email-protection#3754585943565443775f58455b5b56535d58445f1954585a" title="Email" class="social-icon">
+                <a onclick="copyEmail(event)" title="Copy email" class="social-icon" id="email-icon" style="cursor: pointer;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                         <polyline points="22,6 12,13 2,6"/>
@@ -800,6 +800,41 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         let appliances = [];
         let currentCurrency = '$';
+
+        // Copy email to clipboard
+        function copyEmail(event) {
+            const email = 'contact@horlladjosh.com';
+            
+            // Create temporary input element
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                const icon = document.getElementById('email-icon');
+                const originalTitle = icon.getAttribute('title');
+                
+                // Change title to "Copied!"
+                icon.setAttribute('title', 'Copied!');
+                
+                // Visual feedback
+                icon.style.transform = 'scale(1.1)';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    icon.setAttribute('title', originalTitle);
+                    icon.style.transform = 'scale(1)';
+                }, 2000);
+            } catch (err) {
+                document.body.removeChild(tempInput);
+                alert('Email: contact@horlladjosh.com');
+            }
+        }
 
         // Theme Toggle
         function toggleTheme() {
