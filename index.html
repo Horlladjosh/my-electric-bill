@@ -17,6 +17,77 @@
             min-height: 100vh;
             padding: 20px;
             color: #e0e0e0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: 0.3s;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "◐";
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #fff;
+            transition: 0.3s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #0a0a0a;
+        }
+
+        input:checked + .slider {
+            background-color: #ddd;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+            content: "○";
+            background-color: #555;
+            color: #fff;
+        }
+
+        .slider:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .container {
@@ -33,11 +104,19 @@
             letter-spacing: -0.5px;
         }
 
+        body.light-mode h1 {
+            color: #0a0a0a;
+        }
+
         .subtitle {
             color: #888;
             margin-bottom: 40px;
             font-size: 0.95em;
             font-weight: 400;
+        }
+
+        body.light-mode .subtitle {
+            color: #666;
         }
 
         .rate-input {
@@ -48,12 +127,21 @@
             border: 1px solid #222;
         }
 
+        body.light-mode .rate-input {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
         .rate-input label {
             display: block;
             margin-bottom: 10px;
             color: #ccc;
             font-weight: 500;
             font-size: 0.9em;
+        }
+
+        body.light-mode .rate-input label {
+            color: #333;
         }
 
         .rate-input input {
@@ -65,6 +153,12 @@
             background: #0a0a0a;
             color: #fff;
             transition: border 0.2s;
+        }
+
+        body.light-mode .rate-input input {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            color: #0a0a0a;
         }
 
         .rate-input input:focus {
@@ -89,7 +183,7 @@
 
         .appliance-form h2 {
             margin-bottom: 20px;
-            color: #fff;
+            color: #ccc !important;
             font-size: 1.1em;
             font-weight: 500;
         }
@@ -204,12 +298,21 @@
 
         .btn-primary {
             background: #fff;
-            color: #000;
+            color: #0a0a0a;
             width: 100%;
         }
 
         .btn-primary:hover {
-            background: #e0e0e0;
+            background: #f0f0f0;
+        }
+
+        body.light-mode .btn-primary {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        body.light-mode .btn-primary:hover {
+            background: #1a1a1a;
         }
 
         .appliances-list {
@@ -386,9 +489,141 @@
                 margin-top: 10px;
             }
         }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+            border-top: 1px solid #222;
+        }
+
+        body.light-mode .footer {
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-tagline {
+            color: #aaa;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        body.light-mode .footer-tagline {
+            color: #666;
+        }
+
+        .footer-built {
+            color: #888;
+            font-size: 0.85em;
+            margin-bottom: 20px;
+        }
+
+        body.light-mode .footer-built {
+            color: #999;
+        }
+
+        .footer-icon {
+            display: inline-block;
+            font-size: 1.1em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #888;
+            color: #888;
+            background: transparent;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .social-icon:hover {
+            background: #888;
+            border-color: #888;
+            color: #0a0a0a;
+            transform: translateY(-3px);
+        }
+
+        body.light-mode .social-icon {
+            border-color: #666;
+            color: #666;
+            background: transparent;
+        }
+
+        body.light-mode .social-icon:hover {
+            background: #666;
+            border-color: #666;
+            color: #fff;
+        }
+
+        /* Light Mode Overrides */
+        body.light-mode h1 { color: #0a0a0a; }
+        body.light-mode .subtitle { color: #666; }
+        body.light-mode .rate-input { background: #fff; border: 1px solid #e0e0e0; }
+        body.light-mode .rate-input label { color: #333; }
+        body.light-mode .rate-input input,
+        body.light-mode .rate-input select { background: #f9f9f9; border: 1px solid #ddd; color: #0a0a0a; }
+        body.light-mode .rate-input input:focus,
+        body.light-mode .rate-input select:focus { border-color: #999; }
+        body.light-mode .appliance-form { background: #fff; border: 1px solid #e0e0e0; }
+        body.light-mode .appliance-form h2 { color: #333 !important; }
+        body.light-mode .form-group label { color: #333; }
+        body.light-mode .form-group input,
+        body.light-mode .form-group select { background: #f9f9f9; border: 1px solid #ddd; color: #0a0a0a; }
+        body.light-mode .form-group input:focus,
+        body.light-mode .form-group select:focus { border-color: #999; }
+        body.light-mode .slider-value { color: #0a0a0a; }
+        body.light-mode input[type="range"] { background: #ddd; }
+        body.light-mode input[type="range"]::-webkit-slider-thumb { background: #0a0a0a; }
+        body.light-mode input[type="range"]::-moz-range-thumb { background: #0a0a0a; }
+        body.light-mode .appliance-item { background: #fff; border: 1px solid #e0e0e0; }
+        body.light-mode .appliance-item:hover { border-color: #ccc; }
+        body.light-mode .appliance-info h3 { color: #0a0a0a; }
+        body.light-mode .appliance-details { color: #666; }
+        body.light-mode .cost-value { color: #0a0a0a; }
+        body.light-mode .cost-period { color: #999; }
+        body.light-mode .btn-remove { background: transparent; border: 1px solid #ddd; color: #666; }
+        body.light-mode .btn-remove:hover { background: #f5f5f5; border-color: #ccc; color: #0a0a0a; }
+        body.light-mode .total-section { background: #fff; border: 1px solid #e0e0e0; }
+        body.light-mode .total-section h2 { color: #0a0a0a; }
+        body.light-mode .total-item { background: #f9f9f9; border: 1px solid #eee; }
+        body.light-mode .total-label { color: #666; }
+        body.light-mode .total-value { color: #0a0a0a; }
+        body.light-mode .tips-section { background: #fffbf0; border-left: 3px solid #f0b429; border: 1px solid #f0e6cc; }
+        body.light-mode .tips-section h3 { color: #8b6914; }
+        body.light-mode .tip { color: #8b6914; }
+        body.light-mode .empty-state { color: #999; }
     </style>
 </head>
 <body>
+    <div class="theme-toggle">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
     <div class="container">
         <h1>Energy Cost Calculator</h1>
         <p class="subtitle">Track your appliance energy costs and save money</p>
@@ -438,9 +673,9 @@
                 <input type="text" id="electricityRate" pattern="[0-9]*\.?[0-9]*" inputmode="decimal" value="0.12" placeholder="e.g., 0.12">
             </div>
             
-            <small style="color: #666; display: block; margin-top: 8px;">
+            <small style="color: #888; display: block; margin-top: 8px;">
                 Average rates as of March 2025. Your actual rate may vary. 
-                <a href="https://www.globalpetrolprices.com/electricity_prices/" target="_blank" style="color: #888; text-decoration: underline;">Check your bill</a> for exact pricing.
+                <a href="https://www.globalpetrolprices.com/electricity_prices/" target="_blank" style="color: #aaa; text-decoration: underline;">Check your bill</a> for exact pricing.
             </small>
         </div>
 
@@ -530,11 +765,62 @@
             <h3>💰 Money-Saving Tips</h3>
             <div id="tipsContent"></div>
         </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-built">
+                Built with 
+                <span class="footer-icon" title="Love">❤️</span> 
+                and 
+                <span class="footer-icon" title="Light">💡</span>
+            </p>
+            <p class="footer-tagline">Got feedback? Let's connect</p>
+            <div class="social-links">
+                <a href="/cdn-cgi/l/email-protection#3754585943565443775f58455b5b56535d58445f1954585a" title="Email" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/horllad_josh" target="_blank" rel="noopener" title="Twitter" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/joshuaadegbite/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         let appliances = [];
         let currentCurrency = '$';
+
+        // Theme Toggle
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            
+            // Save preference
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                checkbox.checked = true;
+            }
+        });
 
         // Handle location selection
         document.getElementById('locationSelect').addEventListener('change', function() {
