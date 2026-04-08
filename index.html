@@ -619,6 +619,471 @@
         body.light-mode .tips-section h3 { color: #8b6914; }
         body.light-mode .tip { color: #8b6914; }
         body.light-mode .empty-state { color: #999; }
+
+        /* Solar Section */
+        .solar-cta {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn-solar {
+            background: #f6c90e;
+            color: #0a0a0a;
+            font-weight: 700;
+            font-size: 1em;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-solar:hover {
+            background: #e0b800;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(246, 201, 14, 0.3);
+        }
+
+        .solar-section {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .solar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .solar-header h2 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        body.light-mode .solar-header h2 { color: #0a0a0a; }
+
+        .solar-badge {
+            background: #f6c90e;
+            color: #0a0a0a;
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .solar-disclaimer {
+            background: #1a1500;
+            border: 1px solid #2a2200;
+            border-left: 3px solid #f6c90e;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-size: 0.82em;
+            line-height: 1.5;
+        }
+
+        body.light-mode .solar-disclaimer {
+            background: #fffbf0;
+            border: 1px solid #f0e0a0;
+            border-left: 3px solid #f6c90e;
+            color: #7a6010;
+        }
+
+        .solar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .solar-grid { grid-template-columns: 1fr; }
+        }
+
+        .solar-card {
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        body.light-mode .solar-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .solar-card-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .solar-card-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        body.light-mode .solar-card-value { color: #0a0a0a; }
+
+        .solar-card-sub {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        .solar-card.highlight {
+            border-color: #f6c90e33;
+            background: #1a1500;
+        }
+
+        body.light-mode .solar-card.highlight {
+            background: #fffbf0;
+            border-color: #f6c90e;
+        }
+
+        .solar-card.highlight .solar-card-value {
+            color: #f6c90e;
+        }
+
+        body.light-mode .solar-card.highlight .solar-card-value {
+            color: #b88a00;
+        }
+
+        .solar-card.green {
+            border-color: #00aa6633;
+            background: #001a0e;
+        }
+
+        body.light-mode .solar-card.green {
+            background: #f0fff8;
+            border-color: #00aa66;
+        }
+
+        .solar-card.green .solar-card-value {
+            color: #00cc77;
+        }
+
+        body.light-mode .solar-card.green .solar-card-value {
+            color: #007744;
+        }
+
+        .carbon-bar-wrap {
+            margin-top: 20px;
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        body.light-mode .carbon-bar-wrap {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .carbon-bar-label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .carbon-row {
+            margin-bottom: 14px;
+        }
+
+        .carbon-row-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+            color: #aaa;
+        }
+
+        body.light-mode .carbon-row-top { color: #555; }
+
+        .carbon-bar-bg {
+            background: #222;
+            border-radius: 4px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        body.light-mode .carbon-bar-bg { background: #eee; }
+
+        .carbon-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .carbon-bar-fill.current { background: #ff4444; }
+        .carbon-bar-fill.solar { background: #00cc77; }
+
+        .carbon-trees {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #222;
+            font-size: 0.9em;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        body.light-mode .carbon-trees {
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        .carbon-trees span {
+            color: #00cc77;
+            font-weight: 600;
+        }
+
+        body.light-mode .carbon-trees span { color: #007744; }
+
+        .solar-system-info {
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+
+        body.light-mode .solar-system-info {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .solar-system-info-label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .solar-system-specs {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .solar-spec {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solar-spec-val {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #f6c90e;
+        }
+
+        body.light-mode .solar-spec-val { color: #b88a00; }
+
+        .solar-spec-name {
+            font-size: 0.78em;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .yoy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.88em;
+        }
+
+        .yoy-table th {
+            text-align: left;
+            padding: 8px 12px;
+            color: #666;
+            font-weight: 500;
+            border-bottom: 1px solid #222;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        body.light-mode .yoy-table th {
+            border-bottom: 1px solid #eee;
+            color: #999;
+        }
+
+        .yoy-table td {
+            padding: 10px 12px;
+            color: #ccc;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        body.light-mode .yoy-table td {
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .yoy-table td.savings {
+            color: #00cc77;
+            font-weight: 600;
+        }
+
+        body.light-mode .yoy-table td.savings { color: #007744; }
+
+        .yoy-table tr.breakeven td {
+            color: #f6c90e;
+            font-weight: 600;
+        }
+
+        .be-tooltip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            background: #f6c90e;
+            color: #0a0a0a;
+            border-radius: 50%;
+            font-size: 0.72em;
+            font-weight: 800;
+            cursor: help;
+            margin-left: 6px;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        .be-tooltip::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            right: 0;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-size: 0.78em;
+            font-weight: 400;
+            padding: 6px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            border: 1px solid #333;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 10;
+        }
+
+        .be-tooltip:hover::after {
+            opacity: 1;
+        }
+
+        body.light-mode .be-tooltip { background: #b88a00; color: #fff; }
+        body.light-mode .be-tooltip::after { background: #fff; color: #333; border-color: #ddd; }
+
+        .yoy-wrap {
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 18px;
+            margin-top: 12px;
+            overflow-x: auto;
+        }
+
+        body.light-mode .yoy-wrap {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .yoy-wrap-label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        body.light-mode #nigeriaBandWrap label { color: #333; }
+        body.light-mode #nigeriaBandWrap small { color: #999; }
+
+        /* Edit Panel */
+        .edit-panel { margin-bottom: 12px; }
+        .edit-panel-inner {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 16px;
+        }
+        body.light-mode .edit-panel-inner {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        .edit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 500px) { .edit-row { grid-template-columns: 1fr; } }
+        .edit-field label {
+            display: block;
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        .edit-field input[type="text"],
+        .edit-field input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 0.9em;
+        }
+        body.light-mode .edit-field input[type="text"],
+        body.light-mode .edit-field input[type="number"] {
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #0a0a0a;
+        }
+        .edit-field input[type="text"]:focus,
+        .edit-field input[type="number"]:focus { outline: none; border-color: #666; }
+        .edit-actions { display: flex; gap: 8px; margin-top: 4px; }
+        .btn-edit-save {
+            padding: 8px 20px;
+            background: #f6c90e;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.88em;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-edit-save:hover { background: #e0b800; }
+        .btn-edit-cancel {
+            padding: 8px 16px;
+            background: transparent;
+            color: #888;
+            border: 1px solid #333;
+            border-radius: 6px;
+            font-size: 0.88em;
+            cursor: pointer;
+        }
+        .btn-edit-cancel:hover { border-color: #555; color: #ccc; }
+        body.light-mode .btn-edit-cancel { border-color: #ddd; color: #666; }
+        /* Remove bottom radius on appliance item when edit panel open */
+        .appliance-item:has(+ .edit-panel .edit-panel-inner) {
+            border-radius: 8px 8px 0 0;
+        }
     </style>
 </head>
 <body>
@@ -639,48 +1104,60 @@
             <select id="locationSelect">
                 <option value="">Select your country...</option>
                 <!-- Most Popular Countries -->
-                <option value="US" data-rate="0.16" data-currency="$" data-symbol="USD">United States</option>
-                <option value="IN" data-rate="0.08" data-currency="₹" data-symbol="INR">India</option>
+                <option value="US" data-rate="0.18" data-currency="$" data-symbol="USD">United States</option>
+                <option value="IN" data-rate="0.09" data-currency="₹" data-symbol="INR">India</option>
                 <option value="CN" data-rate="0.08" data-currency="¥" data-symbol="CNY">China</option>
-                <option value="NG" data-rate="68.00" data-currency="₦" data-symbol="NGN">Nigeria</option>
-                <option value="GB" data-rate="0.28" data-currency="£" data-symbol="GBP">United Kingdom</option>
-                <option value="BR" data-rate="0.12" data-currency="R$" data-symbol="BRL">Brazil</option>
-                <option value="PK" data-rate="0.10" data-currency="₨" data-symbol="PKR">Pakistan</option>
-                <option value="BD" data-rate="0.07" data-currency="৳" data-symbol="BDT">Bangladesh</option>
-                <option value="ID" data-rate="0.09" data-currency="Rp" data-symbol="IDR">Indonesia</option>
-                <option value="MX" data-rate="0.09" data-currency="$" data-symbol="MXN">Mexico</option>
-                <option value="JP" data-rate="0.27" data-currency="¥" data-symbol="JPY">Japan</option>
-                <option value="DE" data-rate="0.38" data-currency="€" data-symbol="EUR">Germany</option>
-                <option value="FR" data-rate="0.22" data-currency="€" data-symbol="EUR">France</option>
-                <option value="TH" data-rate="0.11" data-currency="฿" data-symbol="THB">Thailand</option>
-                <option value="ZA" data-rate="0.12" data-currency="R" data-symbol="ZAR">South Africa</option>
-                <option value="KE" data-rate="0.22" data-currency="KSh" data-symbol="KES">Kenya</option>
-                <option value="ES" data-rate="0.29" data-currency="€" data-symbol="EUR">Spain</option>
-                <option value="IT" data-rate="0.31" data-currency="€" data-symbol="EUR">Italy</option>
-                <option value="PH" data-rate="0.19" data-currency="₱" data-symbol="PHP">Philippines</option>
-                <option value="EG" data-rate="0.08" data-currency="E£" data-symbol="EGP">Egypt</option>
+                <option value="NG" data-rate="209.50" data-currency="₦" data-symbol="NGN">Nigeria</option>
+                <option value="GB" data-rate="0.34" data-currency="£" data-symbol="GBP">United Kingdom</option>
+                <option value="BR" data-rate="0.15" data-currency="R$" data-symbol="BRL">Brazil</option>
+                <option value="PK" data-rate="0.12" data-currency="₨" data-symbol="PKR">Pakistan</option>
+                <option value="BD" data-rate="0.08" data-currency="৳" data-symbol="BDT">Bangladesh</option>
+                <option value="ID" data-rate="0.10" data-currency="Rp" data-symbol="IDR">Indonesia</option>
+                <option value="MX" data-rate="0.10" data-currency="$" data-symbol="MXN">Mexico</option>
+                <option value="JP" data-rate="0.28" data-currency="¥" data-symbol="JPY">Japan</option>
+                <option value="DE" data-rate="0.41" data-currency="€" data-symbol="EUR">Germany</option>
+                <option value="FR" data-rate="0.25" data-currency="€" data-symbol="EUR">France</option>
+                <option value="TH" data-rate="0.12" data-currency="฿" data-symbol="THB">Thailand</option>
+                <option value="ZA" data-rate="0.19" data-currency="R" data-symbol="ZAR">South Africa</option>
+                <option value="KE" data-rate="0.26" data-currency="KSh" data-symbol="KES">Kenya</option>
+                <option value="ES" data-rate="0.30" data-currency="€" data-symbol="EUR">Spain</option>
+                <option value="IT" data-rate="0.43" data-currency="€" data-symbol="EUR">Italy</option>
+                <option value="PH" data-rate="0.20" data-currency="₱" data-symbol="PHP">Philippines</option>
+                <option value="EG" data-rate="0.04" data-currency="E£" data-symbol="EGP">Egypt</option>
                 <!-- Alphabetical (Rest) -->
                 <option value="AE" data-rate="0.08" data-currency="د.إ" data-symbol="AED">UAE</option>
-                <option value="AR" data-rate="0.03" data-currency="$" data-symbol="ARS">Argentina</option>
-                <option value="AU" data-rate="0.25" data-currency="$" data-symbol="AUD">Australia</option>
-                <option value="BE" data-rate="0.32" data-currency="€" data-symbol="EUR">Belgium</option>
-                <option value="CA" data-rate="0.13" data-currency="$" data-symbol="CAD">Canada</option>
-                <option value="GH" data-rate="0.18" data-currency="₵" data-symbol="GHS">Ghana</option>
+                <option value="AR" data-rate="0.04" data-currency="$" data-symbol="ARS">Argentina</option>
+                <option value="AU" data-rate="0.26" data-currency="$" data-symbol="AUD">Australia</option>
+                <option value="BE" data-rate="0.37" data-currency="€" data-symbol="EUR">Belgium</option>
+                <option value="CA" data-rate="0.12" data-currency="$" data-symbol="CAD">Canada</option>
+                <option value="GH" data-rate="0.20" data-currency="₵" data-symbol="GHS">Ghana</option>
                 <option value="MY" data-rate="0.08" data-currency="RM" data-symbol="MYR">Malaysia</option>
-                <option value="NL" data-rate="0.27" data-currency="€" data-symbol="EUR">Netherlands</option>
+                <option value="NL" data-rate="0.33" data-currency="€" data-symbol="EUR">Netherlands</option>
                 <option value="SA" data-rate="0.05" data-currency="﷼" data-symbol="SAR">Saudi Arabia</option>
-                <option value="SG" data-rate="0.23" data-currency="$" data-symbol="SGD">Singapore</option>
-                <option value="CUSTOM" data-rate="0.12" data-currency="$" data-symbol="USD">Custom / Other</option>
+                <option value="SG" data-rate="0.24" data-currency="$" data-symbol="SGD">Singapore</option>
+                <option value="CUSTOM" data-rate="0.17" data-currency="$" data-symbol="USD">Custom / Other</option>
             </select>
-            
+
+            <!-- Nigeria Band Selector -->
+            <div id="nigeriaBandWrap" style="display:none; margin-top:14px;">
+                <label for="nigeriaBand" style="display:block; margin-bottom:8px; color:#ccc; font-size:0.9em; font-weight:500;">Tariff Band</label>
+                <select id="nigeriaBand">
+                    <option value="209.50">Band A — 20hrs supply · ₦209.50/kWh</option>
+                    <option value="63.00">Band B — 16–18hrs supply · ₦63.00/kWh</option>
+                    <option value="50.00">Band C — 12–16hrs supply · ₦50.00/kWh</option>
+                    <option value="43.00">Band D — 8–12hrs supply · ₦43.00/kWh</option>
+                    <option value="32.00">Band E — under 8hrs supply · ₦32.00/kWh</option>
+                </select>
+                <small style="color:#666; display:block; margin-top:6px; font-size:0.82em;">Not sure? Check your prepaid meter or DISCO bill for your band.</small>
+            </div>
+
             <div style="margin-top: 20px;">
                 <label for="electricityRate">Electricity Rate (<span id="currencySymbol">$</span>/kWh)</label>
                 <input type="text" id="electricityRate" pattern="[0-9]*\.?[0-9]*" inputmode="decimal" value="0.12" placeholder="e.g., 0.12">
             </div>
             
             <small style="color: #888; display: block; margin-top: 8px;">
-                Average rates as of March 2025. Your actual rate may vary. 
-                <a href="https://www.globalpetrolprices.com/electricity_prices/" target="_blank" style="color: #aaa; text-decoration: underline;">Check your bill</a> for exact pricing.
+                Average rates as of Q1 2026. Your actual rate may vary. Check your bill for exact pricing.
             </small>
         </div>
 
@@ -720,8 +1197,8 @@
             <div class="form-group">
                 <label for="hoursPerDay">Hours Used Per Day</label>
                 <div class="slider-container">
-                    <div class="slider-value"><span id="hoursValue">6</span> hours/day</div>
-                    <input type="range" id="hoursPerDay" min="0" max="24" step="0.5" value="6">
+                    <div class="slider-value"><span id="hoursValue">1</span> hours/day</div>
+                    <input type="range" id="hoursPerDay" min="0.5" max="24" step="0.5" value="1">
                 </div>
             </div>
 
@@ -769,6 +1246,116 @@
         <div class="tips-section" id="tipsSection" style="display: none;">
             <h3>💰 Money-Saving Tips</h3>
             <div id="tipsContent"></div>
+        </div>
+
+        <!-- Solar CTA -->
+        <div class="solar-cta" id="solarCta" style="display:none;">
+            <button class="btn btn-solar" onclick="showSolarSection()">See Solar Alternative</button>
+        </div>
+
+        <!-- Solar Section -->
+        <div class="solar-section" id="solarSection">
+            <div class="solar-header">
+                <h2>☀️ Solar Alternative</h2>
+                <span class="solar-badge">Estimate</span>
+            </div>
+
+            <div class="solar-disclaimer">
+                ⚠️ These are <strong>estimates based on your inputs</strong> and typical Nigerian solar market rates. Actual costs vary by vendor, location, and usage. Use this as a guide — always get a real quote before investing.
+            </div>
+
+            <!-- Recommended System -->
+            <div class="solar-system-info">
+                <div class="solar-system-info-label">Recommended Solar System</div>
+                <div class="solar-system-specs">
+                    <div class="solar-spec">
+                        <span class="solar-spec-val" id="solarSystemSize">—</span>
+                        <span class="solar-spec-name">System Size</span>
+                    </div>
+                    <div class="solar-spec">
+                        <span class="solar-spec-val" id="solarDailyKwh">—</span>
+                        <span class="solar-spec-name">Daily Need</span>
+                    </div>
+                    <div class="solar-spec">
+                        <span class="solar-spec-val" id="solarBattery">—</span>
+                        <span class="solar-spec-name">Battery Capacity</span>
+                    </div>
+                    <div class="solar-spec">
+                        <span class="solar-spec-val" id="solarPanels">—</span>
+                        <span class="solar-spec-name">Panels (~400W)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Numbers -->
+            <div class="solar-grid">
+                <div class="solar-card">
+                    <div class="solar-card-label">Current Monthly Cost</div>
+                    <div class="solar-card-value" id="solarCurrentMonthly">—</div>
+                    <div class="solar-card-sub">what you pay now</div>
+                </div>
+                <div class="solar-card highlight">
+                    <div class="solar-card-label">Solar Setup Cost</div>
+                    <div class="solar-card-value" id="solarSetupCost">—</div>
+                    <div class="solar-card-sub">estimated installation</div>
+                </div>
+                <div class="solar-card green">
+                    <div class="solar-card-label">Monthly Savings</div>
+                    <div class="solar-card-value" id="solarMonthlySavings">—</div>
+                    <div class="solar-card-sub">vs current spend</div>
+                </div>
+                <div class="solar-card">
+                    <div class="solar-card-label">Break Even</div>
+                    <div class="solar-card-value" id="solarBreakEven">—</div>
+                    <div class="solar-card-sub">solar pays for itself</div>
+                </div>
+            </div>
+
+            <!-- Carbon Footprint -->
+            <div class="carbon-bar-wrap">
+                <div class="carbon-bar-label">🌍 Carbon Footprint Comparison (Monthly)</div>
+                <div class="carbon-row">
+                    <div class="carbon-row-top">
+                        <span>Current (Grid/Generator)</span>
+                        <span id="carbonCurrentVal">—</span>
+                    </div>
+                    <div class="carbon-bar-bg">
+                        <div class="carbon-bar-fill current" id="carbonCurrentBar" style="width:100%"></div>
+                    </div>
+                </div>
+                <div class="carbon-row">
+                    <div class="carbon-row-top">
+                        <span>On Solar</span>
+                        <span id="carbonSolarVal">—</span>
+                    </div>
+                    <div class="carbon-bar-bg">
+                        <div class="carbon-bar-fill solar" id="carbonSolarBar" style="width:5%"></div>
+                    </div>
+                </div>
+                <div class="carbon-trees" id="carbonTrees"></div>
+            </div>
+
+            <!-- Year on Year Table -->
+            <!-- Advisory message -->
+            <div id="solarAdvisory" style="display:none; margin-top:16px; background:#1a0a0a; border:1px solid #3a1a1a; border-left:3px solid #ff4444; padding:16px; border-radius:8px; font-size:0.88em; color:#cc8888; line-height:1.6;">
+                💡 <strong style="color:#ff6666;">Solar may not be cost-effective for your household right now.</strong><br>
+                Based on your current usage, it would take <span id="advisoryYears" style="color:#ff6666; font-weight:700;"></span> to break even on a solar investment. Solar works best for higher consumption homes — typically those spending <strong>₦15,000+/month</strong> on electricity. Consider adding more appliances or revisiting when your energy use grows.
+            </div>
+
+            <div class="yoy-wrap" id="yoyWrap">
+                <div class="yoy-wrap-label">Year-on-Year Savings Projection</div>
+                <table class="yoy-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Current Cost</th>
+                            <th>Solar Cost</th>
+                            <th>Cumulative Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody id="yoyTableBody"></tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -867,16 +1454,24 @@
             const selectedOption = this.options[this.selectedIndex];
             const rate = selectedOption.getAttribute('data-rate');
             const currency = selectedOption.getAttribute('data-currency');
-            
-            // Always update when a location is selected (even if user manually edited before)
+            const isNigeria = this.value === 'NG';
+
+            // Show/hide Nigeria band selector
+            document.getElementById('nigeriaBandWrap').style.display = isNigeria ? 'block' : 'none';
+
+            // For Nigeria use the band selector rate, otherwise use country rate
+            const effectiveRate = isNigeria
+                ? document.getElementById('nigeriaBand').value
+                : rate;
+
             if (this.value && rate && currency) {
-                document.getElementById('electricityRate').value = rate;
+                document.getElementById('electricityRate').value = effectiveRate;
                 document.getElementById('currencySymbol').textContent = currency;
                 currentCurrency = currency;
-                
+
                 // Recalculate all appliances with new rate
                 if (appliances.length > 0) {
-                    const newRate = parseFloat(rate);
+                    const newRate = parseFloat(effectiveRate);
                     appliances = appliances.map(app => ({
                         ...app,
                         dailyCost: calculateCost(app.wattage, app.hoursPerDay, newRate, 1) * app.quantity,
@@ -886,6 +1481,23 @@
                     renderAppliances();
                     updateTotals();
                 }
+            }
+        });
+
+        // Handle Nigeria band selection change
+        document.getElementById('nigeriaBand').addEventListener('change', function() {
+            const newRate = parseFloat(this.value);
+            document.getElementById('electricityRate').value = newRate;
+            if (appliances.length > 0) {
+                appliances = appliances.map(app => ({
+                    ...app,
+                    dailyCost: calculateCost(app.wattage, app.hoursPerDay, newRate, 1) * app.quantity,
+                    monthlyCost: calculateCost(app.wattage, app.hoursPerDay, newRate, 30) * app.quantity,
+                    yearlyCost: calculateCost(app.wattage, app.hoursPerDay, newRate, 365) * app.quantity
+                }));
+                renderAppliances();
+                updateTotals();
+                updateSolarCta();
             }
         });
 
@@ -920,7 +1532,9 @@
         });
 
         function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            const parts = parseFloat(num).toFixed(2).split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return parts[0] + '.' + parts[1];
         }
 
         function addAppliance() {
@@ -958,13 +1572,14 @@
             renderAppliances();
             updateTotals();
             generateTips();
+            updateSolarCta();
 
             // Reset form
             typeSelect.selectedIndex = 0;
             document.getElementById('customName').value = '';
             document.getElementById('wattage').value = '';
-            document.getElementById('hoursPerDay').value = 6;
-            document.getElementById('hoursValue').textContent = 6;
+            document.getElementById('hoursPerDay').value = 1;
+            document.getElementById('hoursValue').textContent = 1;
             document.getElementById('quantity').value = 1;
             document.getElementById('quantityValue').textContent = 1;
             document.getElementById('customName').style.display = 'none';
@@ -981,6 +1596,7 @@
             renderAppliances();
             updateTotals();
             generateTips();
+            updateSolarCta();
         }
 
         function renderAppliances() {
@@ -999,22 +1615,93 @@
             }
 
             list.innerHTML = appliances.map(app => `
-                <div class="appliance-item">
+                <div class="appliance-item" id="item-${app.id}">
                     <div class="appliance-info">
                         <h3>${app.name}${app.quantity > 1 ? ` × ${app.quantity}` : ''}</h3>
                         <div class="appliance-details">
                             ${app.wattage}W • ${app.hoursPerDay} hours/day${app.quantity > 1 ? ` • ${app.quantity} units` : ''}
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
                         <div class="appliance-cost">
                             <div class="cost-value">${currentCurrency}${formatNumber(app.monthlyCost)}</div>
                             <div class="cost-period">per month</div>
                         </div>
+                        <button class="btn-remove" onclick="openEdit(${app.id})">Edit</button>
                         <button class="btn-remove" onclick="removeAppliance(${app.id})">Remove</button>
                     </div>
                 </div>
+                <div class="edit-panel" id="edit-${app.id}" style="display:none;">
+                    <div class="edit-panel-inner">
+                        <div class="edit-row">
+                            <div class="edit-field">
+                                <label>Name</label>
+                                <input type="text" id="edit-name-${app.id}" value="${app.name}">
+                            </div>
+                            <div class="edit-field">
+                                <label>Watts</label>
+                                <input type="number" id="edit-watts-${app.id}" value="${app.wattage}" min="1">
+                            </div>
+                        </div>
+                        <div class="edit-row">
+                            <div class="edit-field">
+                                <label>Hours/day: <span id="edit-hours-val-${app.id}">${app.hoursPerDay}</span></label>
+                                <input type="range" min="0.5" max="24" step="0.5" value="${app.hoursPerDay}"
+                                    oninput="document.getElementById('edit-hours-val-${app.id}').textContent=this.value"
+                                    id="edit-hours-${app.id}">
+                            </div>
+                            <div class="edit-field">
+                                <label>Quantity: <span id="edit-qty-val-${app.id}">${app.quantity}</span></label>
+                                <input type="range" min="1" max="20" step="1" value="${app.quantity}"
+                                    oninput="document.getElementById('edit-qty-val-${app.id}').textContent=this.value"
+                                    id="edit-qty-${app.id}">
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button class="btn-edit-save" onclick="saveEdit(${app.id})">Save</button>
+                            <button class="btn-edit-cancel" onclick="closeEdit(${app.id})">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             `).join('');
+        }
+
+        function openEdit(id) {
+            document.querySelectorAll('.edit-panel').forEach(p => p.style.display = 'none');
+            document.getElementById('edit-' + id).style.display = 'block';
+        }
+
+        function closeEdit(id) {
+            document.getElementById('edit-' + id).style.display = 'none';
+        }
+
+        function saveEdit(id) {
+            const name   = document.getElementById('edit-name-' + id).value.trim();
+            const watts  = parseFloat(document.getElementById('edit-watts-' + id).value);
+            const hours  = parseFloat(document.getElementById('edit-hours-' + id).value);
+            const qty    = parseInt(document.getElementById('edit-qty-' + id).value);
+            const rate   = parseFloat(document.getElementById('electricityRate').value);
+
+            if (!name || !watts || !hours || !qty) { alert('Please fill in all fields!'); return; }
+
+            appliances = appliances.map(app => {
+                if (app.id !== id) return app;
+                return {
+                    ...app,
+                    name,
+                    wattage: watts,
+                    hoursPerDay: hours,
+                    quantity: qty,
+                    dailyCost:   calculateCost(watts, hours, rate, 1)   * qty,
+                    monthlyCost: calculateCost(watts, hours, rate, 30)  * qty,
+                    yearlyCost:  calculateCost(watts, hours, rate, 365) * qty,
+                };
+            });
+
+            renderAppliances();
+            updateTotals();
+            generateTips();
+            updateSolarCta();
         }
 
         function updateTotals() {
@@ -1081,6 +1768,206 @@
 
             tipsContent.innerHTML = tips.map(tip => `<div class="tip">${tip}</div>`).join('');
         }
+
+        // ── SOLAR LOGIC ──────────────────────────────────────────
+
+        // Nigerian solar cost benchmarks (₦ per watt installed, mid-2025 estimates)
+        // Small system (<2kW): ~₦900/W, Mid (2–5kW): ~₦800/W, Large (>5kW): ~₦700/W
+        const SOLAR_COST_PER_WATT_SMALL  = 900;   // < 2kW
+        const SOLAR_COST_PER_WATT_MID    = 800;   // 2–5kW
+        const SOLAR_COST_PER_WATT_LARGE  = 700;   // > 5kW
+
+        // Emission factors (kg CO2 per kWh)
+        const EMISSION_FACTOR_NIGERIA_GRID = 0.43;   // NERC / IEA
+        const EMISSION_FACTOR_GENERATOR    = 0.65;   // petrol generator
+        const EMISSION_FACTOR_SOLAR        = 0.04;   // lifecycle avg (manufacture amortised)
+
+        // Solar maintenance cost per year (% of setup cost)
+        const SOLAR_ANNUAL_MAINTENANCE_RATE = 0.02; // 2%
+
+        function getTotalDailyKwh() {
+            return appliances.reduce((sum, app) => {
+                return sum + (app.wattage / 1000) * app.hoursPerDay * app.quantity;
+            }, 0);
+        }
+
+        function getTotalMonthlyNaira() {
+            return appliances.reduce((sum, app) => sum + parseFloat(app.monthlyCost), 0);
+        }
+
+        function getSolarCostPerWatt(systemKw) {
+            if (systemKw < 2)  return SOLAR_COST_PER_WATT_SMALL;
+            if (systemKw <= 5) return SOLAR_COST_PER_WATT_MID;
+            return SOLAR_COST_PER_WATT_LARGE;
+        }
+
+        function formatNaira(val) {
+            // Always show in ₦ regardless of selected country for solar section
+            const fixed = parseFloat(val).toFixed(2);
+            const parts = fixed.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return '₦' + parts[0] + '.' + parts[1];
+        }
+
+        function showSolarSection() {
+            const section = document.getElementById('solarSection');
+            const btn = document.querySelector('.btn-solar');
+            const isVisible = section.style.display === 'block';
+            if (isVisible) {
+                section.style.display = 'none';
+                btn.textContent = 'See Solar Alternative';
+            } else {
+                section.style.display = 'block';
+                btn.textContent = 'Hide Solar Alternative';
+                calculateSolar();
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function calculateSolar() {
+            const dailyKwh   = getTotalDailyKwh();
+            const monthlyKwh = dailyKwh * 30;
+
+            // --- System sizing ---
+            // Add 30% buffer for inverter/battery inefficiency
+            const requiredKwh   = dailyKwh * 1.3;
+            // Assume 5 peak sun hours in Nigeria
+            const peakSunHours  = 5;
+            const systemKw      = requiredKwh / peakSunHours;
+            const systemKwRound = Math.ceil(systemKw * 2) / 2; // round up to nearest 0.5kW
+            const numPanels     = Math.ceil((systemKwRound * 1000) / 400);
+            const batteryKwh    = (dailyKwh * 1.3).toFixed(1); // 1 day autonomy
+
+            // --- Cost ---
+            const costPerWatt   = getSolarCostPerWatt(systemKwRound);
+            const setupCost     = systemKwRound * 1000 * costPerWatt;
+            const annualMaint   = setupCost * SOLAR_ANNUAL_MAINTENANCE_RATE;
+            const monthlyMaint  = annualMaint / 12;
+
+            // Current monthly spend — convert to naira if needed
+            // We use the raw naira figure: if country is Nigeria, monthlyCost is in naira
+            // If not Nigeria, approximate in naira using a rough rate (₦1600/$1 mid-2025)
+            const selectedCountry = document.getElementById('locationSelect').value;
+            const isNigeria       = selectedCountry === 'NG';
+            const NAIRA_RATE      = 1600; // fallback conversion
+
+            let currentMonthlyNaira = getTotalMonthlyNaira();
+            if (!isNigeria && currentMonthlyNaira > 0) {
+                // Values are in foreign currency — multiply by naira rate
+                currentMonthlyNaira = currentMonthlyNaira * NAIRA_RATE;
+            }
+
+            const currentYearly = currentMonthlyNaira * 12;
+
+            // Monthly savings = current spend − solar maintenance
+            const monthlySavings = currentMonthlyNaira - monthlyMaint;
+            const yearlySavings  = monthlySavings * 12;
+
+            // Break even in years
+            const breakEvenYears = setupCost / yearlySavings;
+
+            // --- Carbon ---
+            // Assume Nigeria grid (conservative; generator would be higher)
+            const currentCarbonMonthly = monthlyKwh * EMISSION_FACTOR_NIGERIA_GRID;
+            const solarCarbonMonthly   = monthlyKwh * EMISSION_FACTOR_SOLAR;
+            const carbonSavedMonthly   = currentCarbonMonthly - solarCarbonMonthly;
+            const carbonSavedYearly    = carbonSavedMonthly * 12;
+            // 1 tree absorbs ~21 kg CO2/year
+            const treesEquiv = Math.round(carbonSavedYearly / 21);
+
+            // --- Populate UI ---
+            document.getElementById('solarSystemSize').textContent   = systemKwRound.toFixed(1) + ' kW';
+            document.getElementById('solarDailyKwh').textContent     = dailyKwh.toFixed(2) + ' kWh';
+            document.getElementById('solarBattery').textContent      = batteryKwh + ' kWh';
+            document.getElementById('solarPanels').textContent       = numPanels + ' panels';
+
+            document.getElementById('solarCurrentMonthly').textContent = formatNaira(currentMonthlyNaira);
+            document.getElementById('solarSetupCost').textContent       = formatNaira(setupCost);
+            document.getElementById('solarMonthlySavings').textContent  = monthlySavings > 0
+                ? formatNaira(monthlySavings) + '/mo'
+                : '—';
+            document.getElementById('solarBreakEven').textContent = breakEvenYears > 0 && breakEvenYears < 50
+                ? breakEvenYears.toFixed(2) + ' yrs'
+                : '> 50 yrs';
+
+            // Advisory message — show if breakeven > 10 years
+            const advisory = document.getElementById('solarAdvisory');
+            const yoyWrap  = document.getElementById('yoyWrap');
+            if (breakEvenYears > 10 || breakEvenYears <= 0) {
+                advisory.style.display = 'block';
+                document.getElementById('advisoryYears').textContent =
+                    breakEvenYears > 0 && breakEvenYears < 50
+                        ? breakEvenYears.toFixed(2) + ' years'
+                        : 'over 50 years';
+                yoyWrap.style.display = 'none';
+            } else {
+                advisory.style.display = 'none';
+                yoyWrap.style.display = 'block';
+            }
+
+            // Carbon bars
+            const carbonMax = currentCarbonMonthly;
+            document.getElementById('carbonCurrentVal').textContent = currentCarbonMonthly.toFixed(2) + ' kg CO₂';
+            document.getElementById('carbonSolarVal').textContent   = solarCarbonMonthly.toFixed(2) + ' kg CO₂';
+            document.getElementById('carbonCurrentBar').style.width = '100%';
+            document.getElementById('carbonSolarBar').style.width   =
+                ((solarCarbonMonthly / carbonMax) * 100).toFixed(2) + '%';
+
+            document.getElementById('carbonTrees').innerHTML =
+                `By switching to solar you could save <span>${carbonSavedYearly.toFixed(2)} kg of CO₂ per year</span> — equivalent to planting <span>${treesEquiv} trees</span> annually.`;
+
+            // YoY Table — show up to breakeven year + 3 (min 5 rows)
+            const tbody = document.getElementById('yoyTableBody');
+            let rows = '';
+            let cumulativeSavings = -setupCost;
+            let breakevenMarked   = false;
+            let breakevenYear     = null;
+
+            // First pass: find breakeven year
+            let tempSavings = -setupCost;
+            for (let yr = 1; yr <= 50; yr++) {
+                tempSavings += yearlySavings;
+                if (tempSavings >= 0 && breakevenYear === null) {
+                    breakevenYear = yr;
+                    break;
+                }
+            }
+            const tableRows = breakevenYear ? Math.max(5, breakevenYear + 3) : 10;
+
+            for (let yr = 1; yr <= tableRows; yr++) {
+                cumulativeSavings += yearlySavings;
+                const isBreakeven = !breakevenMarked && cumulativeSavings >= 0;
+                if (isBreakeven) breakevenMarked = true;
+
+                rows += `<tr${isBreakeven ? ' class="breakeven"' : ''}>
+                    <td>Year ${yr}</td>
+                    <td>${formatNaira(currentYearly * yr)}</td>
+                    <td>${formatNaira(setupCost + annualMaint * yr)}</td>
+                    <td class="savings" style="white-space:nowrap; color:${cumulativeSavings >= 0 ? '#00cc77' : '#ff4444'};">${cumulativeSavings >= 0 ? '+' : ''}${formatNaira(cumulativeSavings)}${isBreakeven ? ' <span class="be-tooltip" data-tip="Break even — solar has paid for itself from here">!</span>' : ''}</td>
+                </tr>`;
+            }
+            tbody.innerHTML = rows;
+        }
+
+        // Show/hide the solar CTA when appliances are added/removed
+        function updateSolarCta() {
+            const cta = document.getElementById('solarCta');
+            const section = document.getElementById('solarSection');
+            const btn = document.querySelector('.btn-solar');
+            if (appliances.length === 0) {
+                cta.style.display = 'none';
+                section.style.display = 'none';
+                if (btn) btn.textContent = 'See Solar Alternative';
+            } else {
+                cta.style.display = 'block';
+                // If solar section already visible, recalculate
+                if (section.style.display === 'block') {
+                    calculateSolar();
+                }
+            }
+        }
+
+        // ── END SOLAR LOGIC ──────────────────────────────────────
 
         // Update calculations when rate changes
         document.getElementById('electricityRate').addEventListener('input', function() {
