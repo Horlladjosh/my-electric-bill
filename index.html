@@ -23,6 +23,7 @@
             padding: 20px;
             color: #e0e0e0;
             transition: background 0.3s, color 0.3s;
+            position: relative;
         }
 
         body.light-mode {
@@ -31,19 +32,10 @@
         }
 
         .theme-toggle {
-            position: fixed;
+            position: absolute;
             top: 20px;
-            left: 50%;
-            transform: translateX(calc(350px + 16px));
+            right: 20px;
             z-index: 1000;
-        }
-
-        @media (max-width: 740px) {
-            .theme-toggle {
-                left: auto;
-                transform: none;
-                right: 20px;
-            }
         }
 
         .theme-btn {
