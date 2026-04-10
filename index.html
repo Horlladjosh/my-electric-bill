@@ -34,8 +34,17 @@
         .theme-toggle {
             position: absolute;
             top: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(calc(350px + 16px));
             z-index: 1000;
+        }
+
+        @media (max-width: 740px) {
+            .theme-toggle {
+                left: auto;
+                transform: none;
+                right: 20px;
+            }
         }
 
         .theme-btn {
