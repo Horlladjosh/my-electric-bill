@@ -453,8 +453,8 @@ function updateSolarEstimates() {
     }
     const inverterKva = inverterKvaVal.toFixed(1);
 
-    // 3. Lithium Battery Storage Capacity (kWh) (Micro kits start at 0.3 kWh; commercial systems up to 150 kWh...)
-    const STANDARD_BATTERIES = [0.3, 0.5, 1.0, 1.5, 2.5, 3.5, 5.0, 7.5, 10.0, 15.0, 20.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 120.0, 150.0];
+    // 3. Lithium Battery Storage Capacity (kWh) (Modular scale starting at 2.5 kWh minimum up to 150 kWh...)
+    const STANDARD_BATTERIES = [2.5, 3.5, 5.0, 7.5, 10.0, 15.0, 20.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 120.0, 150.0];
     const rawBatteryNeeded = dailyKwhNeeded * 0.5;
     let batteryKwhVal = STANDARD_BATTERIES.find(v => v >= rawBatteryNeeded);
     if (!batteryKwhVal) {

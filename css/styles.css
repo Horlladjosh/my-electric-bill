@@ -575,7 +575,7 @@ body.light-mode .global-tooltip {
     max-width: 1280px;
     margin: 24px auto 0 auto;
     border-top: 1px solid var(--border-color);
-    padding: 16px 0 0 0;
+    padding: 28px 0 20px 0;
 }
 
 .footer-content {
@@ -721,6 +721,10 @@ body.light-mode .global-tooltip {
 
     .total-subvalue {
         font-size: 0.74rem;
+    }
+
+    .app-footer {
+        padding: 4px 0;
     }
 
     .footer-content {
