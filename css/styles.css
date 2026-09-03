@@ -1,0 +1,701 @@
+/* Clean Minimalist Theme System - Generous Spacing, Comfortable Typography & Natural Layout */
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-surface: #151515;
+    --bg-card: #151515;
+    --bg-card-hover: #1a1a1a;
+    --border-color: #222222;
+    --border-hover: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --text-muted: #555555;
+    --accent-color: #ffffff;
+    --accent-bg: #1f1f1f;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --transition: all 0.2s ease;
+}
+
+body.light-mode {
+    --bg-primary: #f5f5f5;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f0f0;
+    --border-color: #e0e0e0;
+    --border-hover: #cccccc;
+    --text-primary: #0a0a0a;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --accent-color: #0a0a0a;
+    --accent-bg: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 28px 32px 48px 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header Navigation & Proper Spacing */
+.app-header {
+    max-width: 1280px;
+    margin: 0 auto 28px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.brand h1 {
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.brand p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* Circular Theme Toggle Button (Moon / Sun SVG) */
+.theme-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Dashboard Container Layout */
+.dashboard-container {
+    max-width: 640px;
+    margin: 0 auto;
+    transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 992px) {
+    .dashboard-container.has-results {
+        max-width: 1280px;
+        display: grid;
+        grid-template-columns: 440px 1fr;
+        gap: 28px;
+        align-items: start;
+    }
+}
+
+.pane-controls, .pane-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pane-results {
+    display: none;
+}
+
+.dashboard-container.has-results .pane-results {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clean Cards with Generous Spacing */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Form Controls */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.input-control, select.input-control {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.92rem;
+    transition: border-color 0.2s;
+}
+
+.input-control:focus, select.input-control:focus {
+    outline: none;
+    border-color: var(--border-hover);
+}
+
+select.input-control {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+}
+
+/* Input Prefix Group (Pure Flexbox Layout) */
+.input-prefix-group {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0 12px;
+    transition: border-color 0.2s ease;
+}
+
+.input-prefix-group:focus-within {
+    border-color: var(--text-secondary);
+}
+
+.prefix-badge {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-right: 8px;
+    user-select: none;
+}
+
+.input-prefix-group input.rate-field {
+    border: none !important;
+    background: transparent !important;
+    padding: 10px 0 !important;
+    flex: 1;
+    width: 100%;
+    box-shadow: none !important;
+}
+
+/* Sliders */
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.slider-val {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.88rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--border-color);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    padding: 11px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    font-size: 0.82rem;
+}
+
+.btn-secondary:hover {
+    border-color: var(--border-hover);
+}
+
+.btn-clear {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-clear:hover {
+    color: #ef4444;
+}
+
+/* Chart Tab Switch Buttons */
+.tab-group {
+    display: flex;
+    gap: 6px;
+    background: var(--bg-primary);
+    padding: 3px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    padding: 5px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* Compact Appliance Table */
+.table-scroll {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: visible;
+}
+
+.appliance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.appliance-table th {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.appliance-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.appliance-table tr:last-child td {
+    border-bottom: none;
+}
+
+.appliance-table tr:hover td {
+    background: var(--bg-card-hover);
+}
+
+.appliance-name-cell {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.appliance-sub {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+/* Hover Tooltip for Money-Saving Tips beside Appliance Name */
+.tip-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.tip-icon:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* Bulletproof Fixed Screen-Clamped Floating Tooltip Engine */
+.global-tooltip {
+    position: fixed;
+    display: none;
+    background: #000000;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 400;
+    white-space: normal;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    border: 1px solid #333333;
+    z-index: 99999;
+    pointer-events: none;
+    line-height: 1.35;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+    box-sizing: border-box;
+}
+
+body.light-mode .global-tooltip {
+    background: #ffffff;
+    color: #0a0a0a;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.global-tooltip.visible {
+    opacity: 1;
+}
+
+.tip-icon[data-tooltip]:hover:after {
+    display: none !important;
+}
+
+.btn-remove-sm {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0 4px;
+}
+
+.btn-remove-sm:hover {
+    color: #ef4444;
+}
+
+/* Results Cards & Grid */
+.total-costs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.total-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 14px 12px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.total-card.accent {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+}
+
+.total-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.total-value {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 4px;
+}
+
+.total-subvalue {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Chart Canvas Box */
+.chart-box {
+    position: relative;
+    height: 210px;
+    width: 100%;
+}
+
+.chart-box canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 210px !important;
+    max-height: 210px !important;
+}
+
+
+
+/* Solar Specs 3-Pill Group */
+.spec-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.spec-pill {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 8px 6px;
+    text-align: center;
+}
+
+.spec-pill-label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.spec-pill-val {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.85rem;
+}
+
+.info-label {
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.info-val {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 18px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Footer */
+.app-footer {
+    max-width: 1280px;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 18px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Responsive Design Systems (Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+/* Tablet Optimization (768px - 991px) */
+@media (max-width: 991px) {
+    body {
+        padding: 16px 14px 40px 14px;
+    }
+
+    .app-header {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-container {
+        max-width: 680px;
+    }
+
+    .pane-results {
+        margin-top: 10px;
+    }
+}
+
+/* Mobile Devices (Max-width: 640px) */
+@media (max-width: 640px) {
+    body {
+        padding: 12px 10px 32px 10px;
+    }
+
+    .app-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .brand h1 {
+        font-size: 1.3rem;
+    }
+
+    .brand p {
+        font-size: 0.8rem;
+    }
+
+    .card {
+        padding: 16px 14px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-header .tab-group {
+        width: 100%;
+    }
+
+    .tab-group .tab-btn {
+        flex: 1;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 0.76rem;
+    }
+
+    .total-costs-grid {
+        gap: 8px;
+    }
+
+    .total-card {
+        padding: 10px 6px;
+    }
+
+    .total-label {
+        font-size: 0.72rem;
+    }
+
+    .total-value {
+        font-size: clamp(0.92rem, 3.8vw, 1.25rem);
+    }
+
+    .total-subvalue {
+        font-size: 0.74rem;
+    }
+}
+
+/* Extra Small Mobile Screens (Max-width: 400px) */
+@media (max-width: 400px) {
+    .total-costs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .total-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        text-align: left;
+    }
+
+    .total-value {
+        margin-top: 0;
+    }
+}

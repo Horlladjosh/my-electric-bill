@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate and track household electricity bill costs, compare electricity rates across countries, and view appliance energy breakdowns.">
+    <title>Energy Cost Calculator</title>
+    
+    <link rel="icon" type="image/png" href="favicon-energy-calc.png">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Local Chart.js library for offline & resilient visual charts -->
+    <script src="js/chart.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="brand">
+            <h1>Energy Cost Calculator</h1>
+            <p>Calculate appliance costs and track household energy usage</p>
+        </div>
+
+        <!-- Circular Theme Toggle Button (Moon / Sun SVG) -->
+        <div class="theme-toggle">
+            <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
+                <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container: Strict 100vh Desktop Fit -> Expands to 2-Column Split View without scrollbars -->
+    <main class="dashboard-container" id="dashboardContainer">
+        
+        <!-- LEFT PANE: Location, Rates, Add Appliance & Compact Appliance List -->
+        <section class="pane-controls">
+            
+            <!-- 1. Location & Electricity Rate -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Electricity Rate</h3>
+                    <span id="currencySymbol" style="font-weight: 600; color: var(--text-primary);">$</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="locationSelect">Select Location</label>
+                    <select id="locationSelect" class="input-control">
+                        <!-- Populated by js/app.js -->
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="electricityRate">Electricity Rate (per kWh)</label>
+                    <div class="input-prefix-group">
+                        <span class="prefix-badge" id="rateCurrencySymbol">$</span>
+                        <input type="number" id="electricityRate" class="input-control rate-field" step="0.01" min="0" value="0.16" placeholder="0.16">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Add Appliance Form -->
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom: 10px;">Add Appliance</h3>
+
+                <div class="form-group">
+                    <label for="applianceType">Appliance</label>
+                    <select id="applianceType" class="input-control">
+                        <option value="Air Conditioner (1.5 HP)" data-watts="1500">Air Conditioner (1500W)</option>
+                        <option value="Refrigerator" data-watts="180">Refrigerator (180W)</option>
+                        <option value="LED Smart TV" data-watts="110" selected>LED Smart TV (110W)</option>
+                        <option value="Microwave Oven" data-watts="1200">Microwave Oven (1200W)</option>
+                        <option value="Washing Machine" data-watts="500">Washing Machine (500W)</option>
+                        <option value="Water Heater" data-watts="2500">Water Heater (2500W)</option>
+                        <option value="Desktop PC" data-watts="250">Desktop PC (250W)</option>
+                        <option value="Ceiling Fan" data-watts="75">Ceiling Fan (75W)</option>
+                        <option value="Custom">Custom Appliance...</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customNameGroup" style="display: none;">
+                    <label for="customName">Custom Appliance Name</label>
+                    <input type="text" id="customName" class="input-control" placeholder="e.g., Gaming Console">
+                </div>
+
+                <div class="form-group">
+                    <label for="wattage">Power Consumption (Watts)</label>
+                    <input type="number" id="wattage" class="input-control" min="1" value="110" placeholder="110">
+                </div>
+
+                <div class="form-group">
+                    <div class="slider-header">
+                        <label for="hoursPerDay" style="margin-bottom: 0;">Hours Used Per Day</label>
+                        <span class="slider-val"><span id="hoursValue">6</span> hrs/day</span>
+                    </div>
+                    <input type="range" id="hoursPerDay" min="0.1" max="24" step="0.5" value="6">
+                </div>
+
+                <div class="form-group">
+                    <div class="slider-header">
+                        <label for="quantity" style="margin-bottom: 0;">Quantity</label>
+                        <span class="slider-val"><span id="quantityValue">1</span> unit(s)</span>
+                    </div>
+                    <input type="range" id="quantity" min="1" max="20" step="1" value="1">
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="addApplianceFromForm()">+ Add Appliance</button>
+            </div>
+
+            <!-- 3. Compact Added Appliances Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span>Added Appliances (<span id="applianceCountBadge">0</span>)</span></h3>
+                    <button type="button" class="btn-clear" onclick="clearAllAppliances()">Clear All</button>
+                </div>
+                <div class="table-scroll" id="appliancesList">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT PANE: Consolidated Single-Viewport Results Pane -->
+        <section class="pane-results">
+            
+            <!-- 1. Total Costs Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Total Energy Costs</h3>
+                    <button type="button" class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+                </div>
+                <div class="total-costs-grid">
+                    <div class="total-card">
+                        <div class="total-label">Daily</div>
+                        <div class="total-value"><span class="currency-sym">$</span><span id="totalDaily">0.00</span></div>
+                        <div class="total-subvalue"><span id="totalKwhDaily">0.0</span> kWh</div>
+                    </div>
+                    <div class="total-card">
+                        <div class="total-label">Yearly</div>
+                        <div class="total-value"><span class="currency-sym">$</span><span id="totalYearly">0.00</span></div>
+                        <div class="total-subvalue"><span id="totalKwhYearly">0.0</span> kWh</div>
+                    </div>
+                    <div class="total-card accent">
+                        <div class="total-label">Monthly</div>
+                        <div class="total-value"><span class="currency-sym">$</span><span id="totalMonthly">0.00</span></div>
+                        <div class="total-subvalue"><span id="totalKwhMonthly">0.0</span> kWh</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Tabbed Visual Analytics Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Visual Analytics</h3>
+                    <div class="tab-group">
+                        <button type="button" class="tab-btn active" id="tabBtnCost" onclick="switchChartTab('cost')">Cost Share (%)</button>
+                        <button type="button" class="tab-btn" id="tabBtnUsage" onclick="switchChartTab('usage')">Usage (kWh)</button>
+                    </div>
+                </div>
+                
+                <!-- Cost Share Doughnut Chart -->
+                <div class="chart-box" id="costChartBox">
+                    <canvas id="costChart"></canvas>
+                </div>
+
+                <!-- Monthly Usage Bar Chart (Hidden by default, switched via tab) -->
+                <div class="chart-box" id="usageChartBox" style="display: none;">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 3. Carbon Footprint Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span>Carbon Footprint</span>
+                        <span class="tip-icon" data-tooltip="Carbon Footprint is the total greenhouse gas (CO₂) released into the atmosphere to generate the electricity your appliances consume.">i</span>
+                    </h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Annual CO₂</span>
+                    <span class="info-val"><span id="co2Value">0 kg/yr</span> <small id="gridRating" style="font-size:0.75rem; color:var(--text-secondary); font-weight:normal; margin-left:2px;">(Moderate Grid)</small></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Car Equivalent</span>
+                    <span class="info-val" id="carMilesValue">0 miles driven</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tree Offset <span class="tip-icon" data-tooltip="Number of mature trees needed for 1 full year to absorb the CO₂ emissions produced by your appliances.">i</span></span>
+                    <span class="info-val" id="treesValue">0 trees</span>
+                </div>
+            </div>
+
+            <!-- 4. Solar & Battery Setup Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span>Solar & Battery Setup</span>
+                        <span class="tip-icon" data-tooltip="Estimated Solar PV Panels + Inverter + Lithium Battery Storage system needed to cover your household electricity.">i</span>
+                    </h3>
+                </div>
+                <div class="spec-group">
+                    <div class="spec-pill">
+                        <span class="spec-pill-label">PV Array</span>
+                        <span id="solarKw" class="spec-pill-val">0 kWp</span>
+                    </div>
+                    <div class="spec-pill">
+                        <span class="spec-pill-label">Inverter</span>
+                        <span id="solarInverter" class="spec-pill-val">0 kVA</span>
+                    </div>
+                    <div class="spec-pill">
+                        <span class="spec-pill-label">Battery</span>
+                        <span id="solarBattery" class="spec-pill-val">0 kWh</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Turnkey Setup <span class="tip-icon" data-tooltip="Estimated total cost to buy and install PV Panels + Hybrid Inverter + Lithium Battery + Cabling & Labor.">i</span></span>
+                    <span class="info-val"><span id="solarCost">$0</span> <small id="solarPayback" style="font-size:0.75rem; color:var(--text-secondary); font-weight:normal; margin-left:2px;">(0 yrs payback)</small></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Est. Savings <span class="tip-icon" data-tooltip="Estimated monthly money saved on your power bill by replacing 80% of your grid electricity with solar energy.">i</span></span>
+                    <span class="info-val" id="solarSavings" style="color: var(--text-primary); font-weight:600;">$0.00 / mo</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Built for simple, transparent household energy cost tracking</p>
+        <div class="social-links">
+            <a href="#" onclick="copyEmail(event)">Email</a>
+            <a href="https://twitter.com/horllad_josh" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://www.linkedin.com/in/joshuaadegbite/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
