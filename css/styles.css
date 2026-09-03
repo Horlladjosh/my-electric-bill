@@ -43,7 +43,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
-    padding: 28px 32px 48px 32px;
+    padding: 28px 32px 16px 32px;
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -570,31 +570,74 @@ body.light-mode .global-tooltip {
     font-size: 0.85rem;
 }
 
-/* Footer */
+/* Footer - Flex Horizontal Space-Between Layout */
 .app-footer {
     max-width: 1280px;
-    margin: 40px auto 0 auto;
-    text-align: center;
+    margin: 24px auto 0 auto;
+    border-top: 1px solid var(--border-color);
+    padding: 16px 0 0 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-credit {
     font-size: 0.82rem;
     color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
-    padding-top: 18px;
+}
+
+.author-credit a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.author-credit a:hover {
+    color: var(--text-primary);
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 8px;
+    align-items: center;
+    gap: 6px;
 }
 
-.social-links a {
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     color: var(--text-secondary);
+    transition: all 0.2s ease;
     text-decoration: none;
 }
 
-.social-links a:hover {
+.social-icon-btn:hover {
     color: var(--text-primary);
+    background: var(--bg-card-hover);
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -678,6 +721,12 @@ body.light-mode .global-tooltip {
 
     .total-subvalue {
         font-size: 0.74rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }
 
