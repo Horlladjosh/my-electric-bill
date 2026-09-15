@@ -1525,7 +1525,7 @@ body.menu-open {
     }
 
     .hero-title {
-        font-size: 2.0rem;
+        font-size: 32px !important;
         line-height: 1.18;
         margin-bottom: 14px;
         letter-spacing: -0.025em;
@@ -1584,16 +1584,27 @@ body.menu-open {
 
     .hero-stats-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
         padding-top: 24px;
     }
 
+    .stat-card {
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        transition: var(--transition);
+    }
+
     .stat-number {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1.25;
     }
 
     .stat-label {
-        font-size: 0.74rem;
+        font-size: 0.78rem;
+        margin-top: 2px;
     }
 
     /* Interactive Demo Card Mobile */
@@ -1672,7 +1683,7 @@ body.menu-open {
 @media (max-width: 480px) {
     h1,
     .hero-title {
-        font-size: 30px !important;
+        font-size: 32px !important;
     }
 }
 
@@ -1697,19 +1708,19 @@ body.menu-open {
 
     h1,
     .hero-title {
-        font-size: 30px !important;
+        font-size: 32px !important;
     }
 
     .hero-stats-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
     }
 
     .stat-number {
-        font-size: 1.05rem;
+        font-size: 1.12rem;
     }
 
     .stat-label {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 }
