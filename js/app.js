@@ -444,8 +444,8 @@ function updateSolarEstimates() {
     const recommendedKwVal = (dailyKwhNeeded / 4.5) * 1.25;
     const recommendedKw = recommendedKwVal.toFixed(1);
 
-    // 2. Inverter Rating (kVA) (Micro kits start at 0.3 kVA; commercial systems up to 100 kVA...)
-    const STANDARD_INVERTERS = [0.3, 0.5, 1.0, 1.5, 2.5, 3.5, 5.0, 7.5, 10.0, 15.0, 20.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0];
+    // 2. Inverter Rating (kVA) (Standard sizes starting at 1.0 kVA minimum up to 100 kVA...)
+    const STANDARD_INVERTERS = [1.0, 1.5, 2.5, 3.5, 5.0, 7.5, 10.0, 15.0, 20.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0];
     const rawInverterNeeded = (peakWatts * 1.25) / 1000;
     let inverterKvaVal = STANDARD_INVERTERS.find(v => v >= rawInverterNeeded);
     if (!inverterKvaVal) {

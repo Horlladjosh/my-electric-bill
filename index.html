@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Cost Calculator — Estimate Household Electricity & Solar Setup</title>
-    <meta name="description" content="Calculate and track household electricity bill costs across 30+ countries. Estimate solar panel array (kWp), battery storage (kWh), carbon footprint, and export appliance energy data.">
+    <title>Energy Cost Calculator — Household Electricity & Solar Setup Sizing</title>
+    <meta name="description" content="Calculate household power costs using electricity tariffs for 30+ supported countries. Size solar PV arrays (kWp), hybrid inverters (kVA), lithium batteries (kWh), and track carbon footprint.">
     <meta name="keywords" content="electricity bill calculator, energy cost calculator, solar sizing calculator, battery backup capacity, carbon footprint tracker, power consumption rates, Horlladjosh">
     <meta name="author" content="Horlladjosh (contact@horlladjosh.com)">
     <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://myelectricbill.vercel.app">
     <meta property="og:title" content="Energy Cost Calculator — Household Electricity & Solar Setup Sizing">
-    <meta property="og:description" content="Simple, transparent household energy cost tracking. Sizing for solar PV arrays, inverter, battery storage, and carbon footprint across 30+ countries.">
+    <meta property="og:description" content="Calculate household power costs using electricity tariffs for 30+ supported countries, size solar PV arrays, hybrid inverters, battery storage, and carbon footprint.">
     <meta property="og:image" content="https://myelectricbill.vercel.app/og-image.jpg">
     <meta property="og:site_name" content="Energy Cost Calculator">
 
@@ -23,7 +23,7 @@
     <meta name="twitter:site" content="@horllad_josh">
     <meta name="twitter:creator" content="@horllad_josh">
     <meta name="twitter:title" content="Energy Cost Calculator — Household Electricity & Solar Setup Sizing">
-    <meta name="twitter:description" content="Simple, transparent household energy cost tracking. Sizing for solar PV arrays, inverter, battery storage, and carbon footprint.">
+    <meta name="twitter:description" content="Calculate household power costs using electricity tariffs for 30+ supported countries, size solar PV arrays, inverter, battery storage, and carbon footprint.">
     <meta name="twitter:image" content="https://myelectricbill.vercel.app/og-image.jpg">
 
     <!-- Favicon & Stylesheets -->
@@ -37,7 +37,7 @@
       "@type": "WebApplication",
       "name": "Energy Cost Calculator",
       "url": "https://myelectricbill.vercel.app",
-      "description": "Calculate appliance energy costs, solar panel requirements, battery storage, and carbon footprint across 30+ countries.",
+      "description": "Calculate household power costs using electricity tariffs for 30+ supported countries, size solar panel requirements, battery storage, and carbon footprint.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "author": {
@@ -47,238 +47,263 @@
       }
     }
     </script>
-
-    <!-- Local Chart.js library for offline & resilient visual charts -->
-    <script src="js/chart.min.js"></script>
 </head>
-<body>
+<body class="landing-body">
 
-    <!-- Header Navigation -->
-    <header class="app-header">
-        <div class="brand">
-            <h1>Energy Cost Calculator</h1>
-            <p>Calculate appliance costs and track household energy usage</p>
-        </div>
+    <!-- Landing Navigation Header -->
+    <header class="landing-header">
+        <div class="landing-header-container">
+            <a href="index.html" class="brand-link">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M215.79,118.17a8,8,0,0,0-5.85-3.5L140,108.72l25.74-68.64A8,8,0,0,0,150.48,30L78.48,126a8,8,0,0,0,5.85,12.33L140,144.17l-25.74,68.64a8,8,0,0,0,15.26,5.72l72-96A8,8,0,0,0,215.79,118.17Z"/>
+                        </svg>
+                    </div>
+                    <span class="brand-name">Energy Cost Calculator</span>
+                </div>
+            </a>
 
-        <!-- Circular Theme Toggle Button (Moon / Sun SVG) -->
-        <div class="theme-toggle">
-            <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
-                <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-                <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/>
-                    <line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-            </button>
+            <nav class="landing-nav">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#interactive-demo">Interactive Demo</a>
+            </nav>
+
+            <div class="landing-header-actions">
+                <a href="app.html" class="btn btn-primary btn-sm header-cta-btn">
+                    <span class="btn-text-desktop">Launch Calculator</span>
+                    <span class="btn-text-mobile">Launch App</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Container: Strict 100vh Desktop Fit -> Expands to 2-Column Split View without scrollbars -->
-    <main class="dashboard-container" id="dashboardContainer">
-        
-        <!-- LEFT PANE: Location, Rates, Add Appliance & Compact Appliance List -->
-        <section class="pane-controls">
-            
-            <!-- 1. Location & Electricity Rate -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Electricity Rate</h3>
-                    <span id="currencySymbol" style="font-weight: 600; color: var(--text-primary);">$</span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="locationSelect">Select Location</label>
-                    <select id="locationSelect" class="input-control">
-                        <!-- Populated by js/app.js -->
-                    </select>
+    <!-- Hero Section -->
+    <section class="landing-hero">
+        <div class="hero-tag-pill">
+            <span>Household Electricity & Solar System Sizing</span>
+        </div>
+
+        <h1 class="hero-title">
+            Calculate Power Bills & <br>
+            Size Your Solar Backup
+        </h1>
+
+        <p class="hero-subtitle">
+            Calculate household power costs using electricity tariffs for 30+ supported countries, size your solar PV array & battery backup, and monitor carbon footprint in real time.
+        </p>
+
+        <!-- Balanced Hero CTA Buttons -->
+        <div class="hero-cta-group">
+            <a href="app.html" class="btn btn-primary btn-lg">
+                <span>Launch Calculator</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                </svg>
+            </a>
+
+            <a href="#interactive-demo" class="btn btn-secondary btn-lg">
+                <span>Explore Demo</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-16-120a8,8,0,0,0-12,0v64a8,8,0,0,0,12.44,6.67l48-32a8,8,0,0,0,0-13.34Z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Clean Stats Bar -->
+        <div class="hero-stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Countries Supported</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">Live FX</span>
+                <span class="stat-label">USD Currency Rates</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">Instant</span>
+                <span class="stat-label">Solar System Sizing</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Client-Side Private</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demonstration Widget -->
+    <section class="landing-section" id="interactive-demo">
+        <div class="section-header text-center">
+            <span class="section-tag">INTERACTIVE DEMO</span>
+            <h2>Instant Energy & Solar Estimator</h2>
+            <p>Click any appliance below to see how real-time electricity costs and solar equipment sizing adapt automatically.</p>
+        </div>
+
+        <div class="demo-interactive-card">
+            <!-- Appliance Selector Pills -->
+            <div class="demo-selector-bar">
+                <button type="button" class="demo-pill-btn active" onclick="selectDemoAppliance('ac', this)">Air Conditioner (1.5 HP)</button>
+                <button type="button" class="demo-pill-btn" onclick="selectDemoAppliance('tv', this)">LED Smart TV (110W)</button>
+                <button type="button" class="demo-pill-btn" onclick="selectDemoAppliance('fridge', this)">Refrigerator (180W)</button>
+                <button type="button" class="demo-pill-btn" onclick="selectDemoAppliance('heater', this)">Water Heater (2500W)</button>
+            </div>
+
+            <!-- Demo Live Metrics Grid -->
+            <div class="demo-metrics-grid">
+                <!-- Est Costs Card -->
+                <div class="demo-metric-box accent-box">
+                    <span class="demo-box-label">Est. Monthly Cost</span>
+                    <div class="demo-main-val"><span id="demoMonthly">$57.60</span> <small style="font-size:0.75rem; font-weight:normal; color:var(--text-secondary);">/ mo</small></div>
+                    <div class="demo-sub-row">
+                        <span>Daily: <strong id="demoDaily">$1.92</strong></span>
+                        <span>Yearly: <strong id="demoYearly">$691.20</strong></span>
+                    </div>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="electricityRate">Electricity Rate (per kWh)</label>
-                    <div class="input-prefix-group">
-                        <span class="prefix-badge" id="rateCurrencySymbol">$</span>
-                        <input type="number" id="electricityRate" class="input-control rate-field" step="0.01" min="0" value="0.16" placeholder="0.16">
+                <!-- Solar Sizing Spec Card -->
+                <div class="demo-metric-box">
+                    <span class="demo-box-label">Recommended Solar Setup</span>
+                    <div class="demo-specs-list">
+                        <div class="demo-spec-item">
+                            <span class="spec-lbl">PV Array</span>
+                            <span class="spec-val" id="demoPv">3.0 kWp</span>
+                        </div>
+                        <div class="demo-spec-item">
+                            <span class="spec-lbl">Inverter</span>
+                            <span class="spec-val" id="demoInverter">2.5 kVA</span>
+                        </div>
+                        <div class="demo-spec-item">
+                            <span class="spec-lbl">Battery</span>
+                            <span class="spec-val" id="demoBattery">6.0 kWh</span>
+                        </div>
+                    </div>
+                    <div class="demo-turnkey-row">
+                        <span>Turnkey Setup: <strong id="demoSetup">$2,800</strong> <small id="demoPayback" style="color:var(--text-secondary); font-weight:normal;">(4.1 yrs payback)</small></span>
+                    </div>
+                </div>
+
+                <!-- Carbon Footprint Card -->
+                <div class="demo-metric-box">
+                    <span class="demo-box-label">Ecological Impact</span>
+                    <div class="demo-main-val"><span id="demoCo2">1,752 kg</span> <small style="font-size:0.75rem; font-weight:normal; color:var(--text-secondary);">CO₂ / yr</small></div>
+                    <div class="demo-sub-row">
+                        <span>Tree Offset: <strong id="demoTrees">88 trees</strong></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. Add Appliance Form -->
-            <div class="card">
-                <h3 class="card-title" style="margin-bottom: 10px;">Add Appliance</h3>
+            <!-- Demo Footer Launch Bar -->
+            <div class="demo-card-footer">
+                <span>Want to build a full custom multi-appliance profile?</span>
+                <a href="app.html" class="btn btn-primary btn-sm">
+                    <span>Launch Full Calculator App</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="form-group">
-                    <label for="applianceType">Appliance</label>
-                    <select id="applianceType" class="input-control">
-                        <option value="Air Conditioner (1.5 HP)" data-watts="1500">Air Conditioner (1500W)</option>
-                        <option value="Refrigerator" data-watts="180">Refrigerator (180W)</option>
-                        <option value="LED Smart TV" data-watts="110" selected>LED Smart TV (110W)</option>
-                        <option value="Microwave Oven" data-watts="1200">Microwave Oven (1200W)</option>
-                        <option value="Washing Machine" data-watts="500">Washing Machine (500W)</option>
-                        <option value="Water Heater" data-watts="2500">Water Heater (2500W)</option>
-                        <option value="Desktop PC" data-watts="250">Desktop PC (250W)</option>
-                        <option value="Ceiling Fan" data-watts="75">Ceiling Fan (75W)</option>
-                        <option value="Custom">Custom Appliance...</option>
-                    </select>
+    <!-- Core Features Grid (Vector Icons Only - No Emojis) -->
+    <section class="landing-section" id="features">
+        <div class="section-header text-center">
+            <span class="section-tag">CORE CAPABILITIES</span>
+            <h2>Built for Accuracy & Transparency</h2>
+            <p>Everything you need to analyze power bills and design solar energy systems.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M215.79,118.17a8,8,0,0,0-5.66-3.83l-59.56-8.51,25.68-68.48A8,8,0,0,0,168.7,28a8,8,0,0,0-7.8,2.77l-120,144a8,8,0,0,0,5.77,13.06l59.56,8.51-25.68,68.48A8,8,0,0,0,88.7,272a8,8,0,0,0,7.8-2.77l120-144A8,8,0,0,0,215.79,118.17Z"/>
+                    </svg>
                 </div>
-
-                <div class="form-group" id="customNameGroup" style="display: none;">
-                    <label for="customName">Custom Appliance Name</label>
-                    <input type="text" id="customName" class="input-control" placeholder="e.g., Gaming Console">
-                </div>
-
-                <div class="form-group">
-                    <label for="wattage">Power Consumption (Watts)</label>
-                    <input type="number" id="wattage" class="input-control" min="1" value="110" placeholder="110">
-                </div>
-
-                <div class="form-group">
-                    <div class="slider-header">
-                        <label for="hoursPerDay" style="margin-bottom: 0;">Hours Used Per Day</label>
-                        <span class="slider-val"><span id="hoursValue">6</span> hrs/day</span>
-                    </div>
-                    <input type="range" id="hoursPerDay" min="0.5" max="24" step="0.5" value="6">
-                </div>
-
-                <div class="form-group">
-                    <div class="slider-header">
-                        <label for="quantity" style="margin-bottom: 0;">Quantity</label>
-                        <span class="slider-val"><span id="quantityValue">1</span> unit(s)</span>
-                    </div>
-                    <input type="range" id="quantity" min="1" max="20" step="1" value="1">
-                </div>
-
-                <button type="button" class="btn btn-primary" onclick="addApplianceFromForm()">+ Add Appliance</button>
+                <h3>30+ Countries & Live FX</h3>
+                <p>Pre-loaded electricity tariffs and carbon grid factors for 30+ countries. Real-time USD exchange rate synchronization via keyless live API.</p>
             </div>
 
-            <!-- 3. Compact Added Appliances Table -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title"><span>Added Appliances (<span id="applianceCountBadge">0</span>)</span></h3>
-                    <button type="button" class="btn-clear" onclick="clearAllAppliances()">Clear All</button>
+            <div class="feature-card">
+                <div class="feature-icon-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66a8,8,0,0,0,11.32-11.32l-16-16a8,8,0,0,0-11.32,11.32Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM197.66,69.66l16-16a8,8,0,0,0-11.32-11.32l-16,16a8,8,0,0,0,11.32,11.32Zm0,116.68a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM240,120H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16ZM40,120H16a8,8,0,0,0,0,16H40a8,8,0,0,0,0-16Zm176,96V216a8,8,0,0,0-16,0v0a8,8,0,0,0,16,0ZM120,240v-24a8,8,0,0,1,16,0v24a8,8,0,0,1-16,0Z"/>
+                    </svg>
                 </div>
-                <div class="table-scroll" id="appliancesList">
-                    <!-- Populated dynamically -->
-                </div>
+                <h3>Solar & Battery System Sizing</h3>
+                <p>Automated recommendations for PV Array (kWp), Hybrid Inverter (kVA), Lithium Battery Storage (kWh starting at 2.5 kWh), setup costs, and ROI payback.</p>
             </div>
 
-        </section>
-
-        <!-- RIGHT PANE: Consolidated Single-Viewport Results Pane -->
-        <section class="pane-results">
-            
-            <!-- 1. Total Costs Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Total Energy Costs</h3>
-                    <button type="button" class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+            <div class="feature-card">
+                <div class="feature-icon-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M224,200H32V40a8,8,0,0,0-16,0V208a8,8,0,0,0,8,8H224a8,8,0,0,0,0-16ZM64,168a8,8,0,0,0,8-8V120a8,8,0,0,0-16,0v40A8,8,0,0,0,64,168Zm48,0a8,8,0,0,0,8-8V80a8,8,0,0,0-16,0v80A8,8,0,0,0,112,168Zm48,0a8,8,0,0,0,8-8V104a8,8,0,0,0-16,0v56A8,8,0,0,0,160,168Zm48,0a8,8,0,0,0,8-8V64a8,8,0,0,0-16,0v96A8,8,0,0,0,208,168Z"/>
+                    </svg>
                 </div>
-                <div class="total-costs-grid">
-                    <div class="total-card">
-                        <div class="total-label">Daily</div>
-                        <div class="total-value"><span class="currency-sym">$</span><span id="totalDaily">0.00</span></div>
-                        <div class="total-subvalue"><span id="totalKwhDaily">0.0</span> kWh</div>
-                    </div>
-                    <div class="total-card">
-                        <div class="total-label">Yearly</div>
-                        <div class="total-value"><span class="currency-sym">$</span><span id="totalYearly">0.00</span></div>
-                        <div class="total-subvalue"><span id="totalKwhYearly">0.0</span> kWh</div>
-                    </div>
-                    <div class="total-card accent">
-                        <div class="total-label">Monthly</div>
-                        <div class="total-value"><span class="currency-sym">$</span><span id="totalMonthly">0.00</span></div>
-                        <div class="total-subvalue"><span id="totalKwhMonthly">0.0</span> kWh</div>
-                    </div>
-                </div>
+                <h3>Visual Analytics & CSV Export</h3>
+                <p>Interactive cost share doughnut chart and monthly usage bar chart (kWh). Export complete household appliance profiles to CSV with a single click.</p>
             </div>
 
-            <!-- 2. Tabbed Visual Analytics Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Visual Analytics</h3>
-                    <div class="tab-group">
-                        <button type="button" class="tab-btn active" id="tabBtnCost" onclick="switchChartTab('cost')">Cost Share (%)</button>
-                        <button type="button" class="tab-btn" id="tabBtnUsage" onclick="switchChartTab('usage')">Usage (kWh)</button>
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M224,48a8,8,0,0,0-8-8C152,40,96,80,80,144A87.64,87.64,0,0,0,32,208a8,8,0,0,0,8,8,88.11,88.11,0,0,0,88-88c32-8,72-32,96-80A8,8,0,0,0,224,48ZM112,199.4A72.14,72.14,0,0,1,48.6,136c12.28-44.25,52.28-76.84,103.52-85.3A154.21,154.21,0,0,0,95,127.35a8,8,0,0,0,1.38,10.64L112,199.4Z"/>
+                    </svg>
                 </div>
-                
-                <!-- Cost Share Doughnut Chart -->
-                <div class="chart-box" id="costChartBox">
-                    <canvas id="costChart"></canvas>
-                </div>
+                <h3>Carbon Footprint Tracker</h3>
+                <p>Calculates annual greenhouse gas (CO₂) emissions, gas car mileage equivalent, and mature tree offset requirements based on regional grid emission factors.</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Monthly Usage Bar Chart (Hidden by default, switched via tab) -->
-                <div class="chart-box" id="usageChartBox" style="display: none;">
-                    <canvas id="usageChart"></canvas>
-                </div>
+    <!-- How It Works Section -->
+    <section class="landing-section" id="how-it-works">
+        <div class="section-header text-center">
+            <span class="section-tag">WORKFLOW</span>
+            <h2>How It Works</h2>
+            <p>Calculate appliance costs and size solar backup systems in 3 simple steps.</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Select Location & Tariff</h3>
+                <p>Choose your country from the 30+ pre-loaded dropdown list or enter your exact utility tariff rate per kWh.</p>
             </div>
 
-            <!-- 3. Carbon Footprint Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <span>Carbon Footprint</span>
-                        <span class="tip-icon" data-tooltip="Carbon Footprint is the total greenhouse gas (CO₂) released into the atmosphere to generate the electricity your appliances consume.">i</span>
-                    </h3>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Annual CO₂</span>
-                    <span class="info-val"><span id="co2Value">0 kg/yr</span> <small id="gridRating" style="font-size:0.75rem; color:var(--text-secondary); font-weight:normal; margin-left:2px;">(Moderate Grid)</small></span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Car Equivalent</span>
-                    <span class="info-val" id="carMilesValue">0 miles driven</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Tree Offset <span class="tip-icon" data-tooltip="Number of mature trees needed for 1 full year to absorb the CO₂ emissions produced by your appliances.">i</span></span>
-                    <span class="info-val" id="treesValue">0 trees</span>
-                </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Add Household Appliances</h3>
+                <p>Pick common appliances (Air Conditioner, TV, Refrigerator) or input custom wattages and daily operating hours.</p>
             </div>
 
-            <!-- 4. Solar & Battery Setup Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <span>Solar & Battery Setup</span>
-                        <span class="tip-icon" data-tooltip="Estimated Solar PV Panels + Inverter + Lithium Battery Storage system needed to cover your household electricity.">i</span>
-                    </h3>
-                </div>
-                <div class="spec-group">
-                    <div class="spec-pill">
-                        <span class="spec-pill-label">PV Array</span>
-                        <span id="solarKw" class="spec-pill-val">0 kWp</span>
-                    </div>
-                    <div class="spec-pill">
-                        <span class="spec-pill-label">Inverter</span>
-                        <span id="solarInverter" class="spec-pill-val">0 kVA</span>
-                    </div>
-                    <div class="spec-pill">
-                        <span class="spec-pill-label">Battery</span>
-                        <span id="solarBattery" class="spec-pill-val">0 kWh</span>
-                    </div>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Turnkey Setup <span class="tip-icon" data-tooltip="Estimated total cost to buy and install PV Panels + Hybrid Inverter + Lithium Battery + Cabling & Labor.">i</span></span>
-                    <span class="info-val"><span id="solarCost">$0</span> <small id="solarPayback" style="font-size:0.75rem; color:var(--text-secondary); font-weight:normal; margin-left:2px;">(0 yrs payback)</small></span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Est. Savings <span class="tip-icon" data-tooltip="Estimated monthly money saved on your power bill by replacing 80% of your grid electricity with solar energy.">i</span></span>
-                    <span class="info-val" id="solarSavings" style="color: var(--text-primary); font-weight:600;">$0.00 / mo</span>
-                </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Get Instant Solar & Cost Breakdown</h3>
+                <p>View daily, monthly, and yearly costs, solar PV & battery system requirements, and export your breakdown to CSV.</p>
             </div>
+        </div>
+    </section>
 
-        </section>
+    <!-- Bottom CTA Banner Section -->
+    <section class="landing-section cta-banner-section">
+        <div class="cta-banner-card">
+            <h2>Ready to Optimize Your Power Bill?</h2>
+            <p>No registration or account required. 100% free and runs completely client-side in your browser.</p>
+            <a href="app.html" class="btn btn-primary btn-lg">
+                <span>Launch Calculator</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-    </main>
-
-    <!-- Footer -->
+    <!-- Shared App Footer -->
     <footer class="app-footer">
         <div class="footer-content">
             <span class="footer-text">Simple, household energy cost tracking</span>
@@ -305,9 +330,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Modules -->
-    <script src="js/data.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Landing JavaScript -->
+    <script src="js/landing.js"></script>
 </body>
 </html>
