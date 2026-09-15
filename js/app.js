@@ -58,9 +58,11 @@ function updateThemeIcons(isLightMode) {
 
 function initTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const isLight = savedTheme === 'light';
+    const isLight = savedTheme !== 'dark';
     if (isLight) {
         document.body.classList.add('light-mode');
+    } else {
+        document.body.classList.remove('light-mode');
     }
     updateThemeIcons(isLight);
 }

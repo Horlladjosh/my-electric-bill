@@ -1511,7 +1511,7 @@ body.menu-open {
     }
 
     .landing-hero {
-        padding: 28px 14px 24px 14px;
+        padding: 56px 16px 32px 16px;
     }
 
     .hero-tag-pill {
@@ -1583,9 +1583,9 @@ body.menu-open {
     }
 
     .hero-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 12px;
-        padding-top: 18px;
+        padding-top: 24px;
     }
 
     .stat-number {
@@ -1701,8 +1701,8 @@ body.menu-open {
     }
 
     .hero-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .stat-number {

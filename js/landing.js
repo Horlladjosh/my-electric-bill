@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initLandingTheme() {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    const isLight = savedTheme !== 'dark';
+    if (isLight) {
         document.body.classList.add('light-mode');
         updateLandingThemeIcons(true);
     } else {
