@@ -130,17 +130,17 @@
                 <h3 class="card-title" style="margin-bottom: 10px;">Add Appliance</h3>
 
                 <div class="form-group">
-                    <label for="applianceType">Appliance</label>
+                    <label for="applianceType">Appliance Preset</label>
                     <select id="applianceType" class="input-control">
-                        <option value="Air Conditioner (1.5 HP)" data-watts="1500">Air Conditioner (1500W)</option>
-                        <option value="Refrigerator" data-watts="180">Refrigerator (180W)</option>
-                        <option value="LED Smart TV" data-watts="110" selected>LED Smart TV (110W)</option>
-                        <option value="Microwave Oven" data-watts="1200">Microwave Oven (1200W)</option>
-                        <option value="Washing Machine" data-watts="500">Washing Machine (500W)</option>
-                        <option value="Water Heater" data-watts="2500">Water Heater (2500W)</option>
-                        <option value="Desktop PC" data-watts="250">Desktop PC (250W)</option>
-                        <option value="Ceiling Fan" data-watts="75">Ceiling Fan (75W)</option>
-                        <option value="Custom">Custom Appliance...</option>
+                        <option value="Air Conditioner (1.5 HP)" data-watts="1500">Air Conditioner (~1500W default)</option>
+                        <option value="Refrigerator" data-watts="180">Refrigerator (~180W default)</option>
+                        <option value="LED Smart TV" data-watts="110" selected>LED Smart TV (~110W default)</option>
+                        <option value="Microwave Oven" data-watts="1200">Microwave Oven (~1200W default)</option>
+                        <option value="Washing Machine" data-watts="500">Washing Machine (~500W default)</option>
+                        <option value="Water Heater" data-watts="2500">Water Heater (~2500W default)</option>
+                        <option value="Desktop PC" data-watts="250">Desktop PC (~250W default)</option>
+                        <option value="Ceiling Fan" data-watts="75">Ceiling Fan (~75W default)</option>
+                        <option value="Custom">Custom Appliance (Custom Watts)...</option>
                     </select>
                 </div>
 
@@ -150,8 +150,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="wattage">Power Consumption (Watts)</label>
-                    <input type="number" id="wattage" class="input-control" min="1" value="110" placeholder="110">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label for="wattage" style="margin-bottom: 0;">Power Consumption (Watts)</label>
+                        <span class="input-label-badge">Fully Editable</span>
+                    </div>
+                    <input type="number" id="wattage" class="input-control" min="1" value="110" placeholder="e.g., 1500">
+                    <span class="input-hint">💡 Default preset loaded. Feel free to type or edit your exact appliance wattage above.</span>
                 </div>
 
                 <div class="form-group">
